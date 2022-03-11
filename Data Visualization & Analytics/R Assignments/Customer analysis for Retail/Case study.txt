@@ -1,0 +1,249 @@
+Retail Case Study
+#1. Merging
+Using base merge function:
+
+m1<-merge(Transactions, Prod_Hierarchy, by.x = "product_code",by.y = "Product_Code", no.dups = FALSE)
+#View(m1)
+
+m2<-merge(Customers,m1,by.x="customer_Id", by.y = "cust_id",no.dups = FALSE)
+Customers_final<-m2[,c(-8,-9,-15,-17)]
+View(Customers_final)
+Using Dplyr merge:
+
+m3<-inner_join(Transactions, Prod_Hierarchy, by= c("product_code" = "Product_Code"))
+m4<-inner_join(Customers,m3,by=c("customer_Id" = "cust_id"))
+Customer_Final<-m4[,c(-7,-8,-15,-17)]
+
+## Displaying extract of merged data set.
+head(Customer_Final)
+##   customer_Id        DOB Gender city_code transaction_id  tran_date Qty Rate
+## 1      268408 1970-01-02      M         4    87243835584 2014-01-13   5  187
+## 2      268408 1970-01-02      M         4    16197868036 2013-12-16  -5 -210
+## 3      268408 1970-01-02      M         4    16197868036 2013-12-12   5  210
+## 4      268408 1970-01-02      M         4    28810141075 2013-09-02   2  813
+## 5      268408 1970-01-02      M         4    64633435931 2013-05-06   3  312
+## 6      268408 1970-01-02      M         4    56902862040 2013-01-30   5  868
+##       Tax total_amt     Store_type product_code         prod_cat prod_subcat
+## 1  98.175  1033.175       TeleShop        5 - 7            Books     Fiction
+## 2 110.250 -1160.250 Flagship store        4 - 1             Bags        Mens
+## 3 110.250  1160.250 Flagship store        4 - 1             Bags        Mens
+## 4 170.730  1796.730       TeleShop       6 - 10 Home and kitchen     Kitchen
+## 5  98.280  1034.280 Flagship store        2 - 4         Footwear        Kids
+## 6 455.700  4795.700         e-Shop        3 - 9      Electronics     Cameras
+#2. Summary Report
+a.Column names and their data types
+
+str(Customer_Final)
+## 'data.frame':    23053 obs. of  14 variables:
+##  $ customer_Id   : chr  "268408" "268408" "268408" "268408" ...
+##  $ DOB           : Date, format: "1970-01-02" "1970-01-02" ...
+##  $ Gender        : chr  "M" "M" "M" "M" ...
+##  $ city_code     : chr  "4" "4" "4" "4" ...
+##  $ transaction_id: chr  "87243835584" "16197868036" "16197868036" "28810141075" ...
+##  $ tran_date     : Date, format: "2014-01-13" "2013-12-16" ...
+##  $ Qty           : int  5 -5 5 2 3 5 5 4 3 1 ...
+##  $ Rate          : int  187 -210 210 813 312 868 1175 650 321 806 ...
+##  $ Tax           : num  98.2 110.2 110.2 170.7 98.3 ...
+##  $ total_amt     : num  1033 -1160 1160 1797 1034 ...
+##  $ Store_type    : chr  "TeleShop" "Flagship store" "Flagship store" "TeleShop" ...
+##  $ product_code  : chr  "5 - 7" "4 - 1" "4 - 1" "6 - 10" ...
+##  $ prod_cat      : chr  "Books" "Bags" "Bags" "Home and kitchen" ...
+##  $ prod_subcat   : chr  "Fiction" "Mens" "Mens" "Kitchen" ...
+b.Top/Bottom 10 observations
+
+head(Customer_Final, 10)
+##    customer_Id        DOB Gender city_code transaction_id  tran_date Qty Rate
+## 1       268408 1970-01-02      M         4    87243835584 2014-01-13   5  187
+## 2       268408 1970-01-02      M         4    16197868036 2013-12-16  -5 -210
+## 3       268408 1970-01-02      M         4    16197868036 2013-12-12   5  210
+## 4       268408 1970-01-02      M         4    28810141075 2013-09-02   2  813
+## 5       268408 1970-01-02      M         4    64633435931 2013-05-06   3  312
+## 6       268408 1970-01-02      M         4    56902862040 2013-01-30   5  868
+## 7       268408 1970-01-02      M         4    56844530655 2012-10-14   5 1175
+## 8       268408 1970-01-02      M         4    19516063887 2012-09-07   4  650
+## 9       268408 1970-01-02      M         4    12644501524 2012-08-14   3  321
+## 10      268408 1970-01-02      M         4    63314547725 2012-04-26   1  806
+##        Tax total_amt     Store_type product_code         prod_cat
+## 1   98.175  1033.175       TeleShop        5 - 7            Books
+## 2  110.250 -1160.250 Flagship store        4 - 1             Bags
+## 3  110.250  1160.250 Flagship store        4 - 1             Bags
+## 4  170.730  1796.730       TeleShop       6 - 10 Home and kitchen
+## 5   98.280  1034.280 Flagship store        2 - 4         Footwear
+## 6  455.700  4795.700         e-Shop        3 - 9      Electronics
+## 7  616.875  6491.875            MBR        2 - 1         Footwear
+## 8  273.000  2873.000         e-Shop       3 - 10      Electronics
+## 9  101.115  1064.115       TeleShop        4 - 4             Bags
+## 10  84.630   890.630 Flagship store        1 - 1         Clothing
+##        prod_subcat
+## 1          Fiction
+## 2             Mens
+## 3             Mens
+## 4          Kitchen
+## 5             Kids
+## 6          Cameras
+## 7             Mens
+## 8  Audio and video
+## 9            Women
+## 10           Women
+tail(Customer_Final, 10)
+##       customer_Id        DOB Gender city_code transaction_id  tran_date Qty
+## 23044      270476 1992-12-25      F         3    78034405353 2013-08-13   1
+## 23045      270476 1992-12-25      F         3     3359888057 2013-03-16   4
+## 23046      270476 1992-12-25      F         3    22883386455 2012-05-22   4
+## 23047      270476 1992-12-25      F         3    19725194268 2012-02-21   4
+## 23048      270476 1992-12-25      F         3    85475160771 2011-08-09   5
+## 23049      269626 1992-12-27      F         5    71369029396 2011-10-18   1
+## 23050      269626 1992-12-27      F         5    94134051896 2011-07-07   3
+## 23051      274308 1992-12-29      F         5    26208690928 2012-10-22   2
+## 23052      274308 1992-12-29      F         5    57358822237 2012-09-05   4
+## 23053      274308 1992-12-29      F         5    58160544337 2012-07-04   5
+##       Rate     Tax total_amt     Store_type product_code         prod_cat
+## 23044  971 101.955  1072.955       TeleShop       6 - 11 Home and kitchen
+## 23045  361 151.620  1595.620            MBR       3 - 10      Electronics
+## 23046  898 377.160  3969.160 Flagship store        2 - 4         Footwear
+## 23047  618 259.560  2731.560         e-Shop        4 - 4             Bags
+## 23048 1354 710.850  7480.850 Flagship store        3 - 5      Electronics
+## 23049  638  66.990   704.990         e-Shop       6 - 12 Home and kitchen
+## 23050 1078 339.570  3573.570            MBR        1 - 3         Clothing
+## 23051  898 188.580  1984.580            MBR        2 - 1         Footwear
+## 23052  876 367.920  3871.920         e-Shop        2 - 1         Footwear
+## 23053  588 308.700  3248.700         e-Shop       5 - 12            Books
+##           prod_subcat
+## 23044            Bath
+## 23045 Audio and video
+## 23046            Kids
+## 23047           Women
+## 23048       Computers
+## 23049           Tools
+## 23050            Kids
+## 23051            Mens
+## 23052            Mens
+## 23053        Academic
+c.”Five-number summary” for continuous variables
+
+Qty<-fivenum(Customer_Final$Qty)
+Rate<-fivenum(Customer_Final$Rate)
+Tax<-fivenum(Customer_Final$Tax)
+Total_Amt<-fivenum(Customer_Final$total_amt)
+Five_number_Summary<-data.frame(Qty,Rate,Tax,Total_Amt, row.names=c("Min","1st Quart","Median","3rd Quart","Max"))
+print(Five_number_Summary)
+##           Qty  Rate     Tax Total_Amt
+## Min        -5 -1499   7.350 -8270.925
+## 1st Quart   1   312  98.280   762.450
+## Median      3   710 199.080  1754.740
+## 3rd Quart   4  1109 365.715  3569.150
+## Max         5  1500 787.500  8287.500
+d.Frequency tables for all categorical variables
+
+## Extract of Freq table for customer id
+head(table(Customer_Final$customer_Id),50)
+## 
+## 266783 266784 266785 266788 266794 266799 266803 266804 266805 266806 266807 
+##      5      3      8      4     12      4      1      1      1      6      4 
+## 266809 266810 266812 266813 266814 266815 266816 266817 266818 266819 266820 
+##      5      5      2      1      5      3      6      3      5      3      4 
+## 266821 266822 266823 266824 266825 266827 266829 266830 266831 266833 266835 
+##      3     10      3      4      4      6      3      3      2      3      3 
+## 266836 266838 266841 266842 266843 266844 266845 266846 266847 266848 266849 
+##      4      1      7      3      6      2      4      5      2      1      2 
+## 266851 266852 266853 266854 266855 266856 
+##      2      7      4      5      4      4
+## Freq table for Gender
+Customer_Final$Gender[Customer_Final$Gender==""]<-NA
+table(Customer_Final$Gender)
+## 
+##     F     M 
+## 11233 11811
+## Freq table for City
+table(Customer_Final$city_code)
+## 
+##    1   10    2    3    4    5    6    7    8    9 
+## 2258 2333 2270 2411 2422 2360 2127 2356 2330 2178
+## Freq table for Store type
+table(Customer_Final$Store_type)
+## 
+##         e-Shop Flagship store            MBR       TeleShop 
+##           9311           4577           4661           4504
+## Freq table for Product Categories
+table(Customer_Final$prod_cat)
+## 
+##             Bags            Books         Clothing      Electronics 
+##             1998             6069             2960             4898 
+##         Footwear Home and kitchen 
+##             2999             4129
+#3.Histogram and Frequency bars
+
+hist(Customer_Final$Qty, col="#E4717A", xlab = "Quantity")
+
+
+hist(Customer_Final$total_amt,border="red", xlab = "Total Amount")
+
+
+barplot(table(Customer_Final$Gender),xlab = "Gender")
+
+
+barplot(table(Customer_Final$Store_type),col="light blue",xlab = "Store Type")
+
+
+#4.Transaction Analysis
+
+##a.Time period of available transaction data
+TimePeriod<-max(Customer_Final$tran_date)-min(Customer_Final$tran_date)
+print(TimePeriod)
+## Time difference of 1130 days
+##b.Count of transactions where total amount was negative
+Customer_Final %>% filter(total_amt<0) %>% count()
+##      n
+## 1 2177
+#5.Category Popularity
+
+library(ggplot2)
+Customer_Final %>% filter(!is.na(Customer_Final$Gender)) %>% ggplot(aes(prod_cat,fill=Gender))+geom_bar(position='dodge')+labs(x="Product Category")
+
+
+#6.Maximum customers in city
+
+d<-Customers %>% group_by(city_code) %>% count()
+paste("Maximum customers are from city code",d$city_code[which.max(d$n)])
+## [1] "Maximum customers are from city code 3"
+##Percent of Customers from this city
+pct<-max(d$n)/nrow(Customers)
+print(pct)
+## [1] 0.1053657
+#7.Store-type analysis
+
+Totals<-Customer_Final %>% filter(Qty>0) %>% group_by(Store_type) %>% summarise(TotalQty=sum(Qty),TotalValue=sum(total_amt))
+
+MaxbyQty<-Totals$Store_type[which.max(Totals$TotalQty)]
+paste("Store-type selling max products by Quantity:", MaxbyQty)
+## [1] "Store-type selling max products by Quantity: e-Shop"
+MaxbyValue<-Totals$Store_type[which.max(Totals$TotalValue)]
+paste("Store-type selling max products by Value:", MaxbyValue)
+## [1] "Store-type selling max products by Value: e-Shop"
+#8.Total amount earned from Electronics and Clothing categories for Flagship stores
+
+Customer_Final %>% filter(grepl("Flagship",Store_type) & prod_cat %in% c("Electronics","Clothing")) %>% summarise(Tot_Amt=sum(total_amt))
+##   Tot_Amt
+## 1 3409559
+#9.Total amount earned from Males in Electronics category
+
+Customer_Final %>% filter(Gender=="M" & prod_cat == "Electronics") %>% summarise(Tot_MnE=sum(total_amt))
+##   Tot_MnE
+## 1 5703109
+#10.Frequent customers having more than 10 transactions
+
+Freq_cust<-Customer_Final %>% filter(total_amt>0) %>% group_by(customer_Id) %>% count()
+NoofFreqcust<-nrow(Freq_cust %>% filter(n>10))
+print(NoofFreqcust)
+## [1] 6
+#11.Customers aged between 25-35
+a. Total amount spent in Electronics and Books
+
+Customer_Final$Age<-year(Sys.Date())-year(Customer_Final$DOB)
+Customer_Final %>% filter(between(Age,25,35) & prod_cat %in% c("Electronics","Books")) %>% summarise(AmtSpent=sum(total_amt))
+##   AmtSpent
+## 1  6058003
+Total amount spent by above customers between 1st Jan 2014 to 1st Mar 2014
+Customer_Final %>% filter(between(Age,25,35) & between(tran_date,as.Date("2014-01-01",format = "%Y-%m-%d"),as.Date("2014-03-01",format = "%Y-%m-%d"))) %>% summarise(Amt_Spent=sum(total_amt))
+##   Amt_Spent
+## 1  653925.7

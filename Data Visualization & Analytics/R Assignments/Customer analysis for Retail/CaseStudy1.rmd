@@ -1,0 +1,169 @@
+---
+title: "Retail Case Study"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include=FALSE}
+Customers<-read.csv("Case study 1 (Retail)/Customer.csv")
+Prod_Hierarchy<-read.csv("Case study 1 (Retail)/prod_cat_info.csv")
+Prod_Hierarchy$Product_Code<-paste(Prod_Hierarchy$prod_cat_code,'-',Prod_Hierarchy$prod_sub_cat_code)
+Transactions<-read.csv("Case study 1 (Retail)/Transactions.csv")
+Transactions$product_code<-paste(Transactions$prod_cat_code,'-',Transactions$prod_subcat_code)
+Customers$customer_Id<-as.character(Customers$customer_Id)
+Customers$city_code<-as.character(Customers$city_code)
+Customers$DOB<-as.Date(Customers$DOB,format = "%d-%m-%Y")
+Transactions$transaction_id<-as.character(Transactions$transaction_id)
+Transactions$cust_id<-as.character(Transactions$cust_id)
+Transactions$prod_cat_code<-as.character(Transactions$prod_cat_code)
+Transactions$prod_subcat_code<-as.character(Transactions$prod_subcat_code)
+Transactions$tran_date <- lubridate::dmy(Transactions$tran_date)
+Prod_Hierarchy$prod_cat_code<-as.character(Prod_Hierarchy$prod_cat_code)
+Prod_Hierarchy$prod_sub_cat_code<-as.character(Prod_Hierarchy$prod_sub_cat_code)
+
+# View(Customers)
+# View(Prod_Hierarchy)
+# View(Transactions)
+
+# str(Customers)
+# str(Transactions)
+# str(Prod_Hierarchy)
+
+library(dplyr)
+library(lubridate)
+library(hablar)
+```
+
+#1. Merging  
+Using base merge function:
+```{r}
+m1<-merge(Transactions, Prod_Hierarchy, by.x = "product_code",by.y = "Product_Code", no.dups = FALSE)
+#View(m1)
+
+m2<-merge(Customers,m1,by.x="customer_Id", by.y = "cust_id",no.dups = FALSE)
+Customers_final<-m2[,c(-8,-9,-15,-17)]
+View(Customers_final)
+```
+
+Using Dplyr merge:
+```{r}
+m3<-inner_join(Transactions, Prod_Hierarchy, by= c("product_code" = "Product_Code"))
+m4<-inner_join(Customers,m3,by=c("customer_Id" = "cust_id"))
+Customer_Final<-m4[,c(-7,-8,-15,-17)]
+
+## Displaying extract of merged data set.
+head(Customer_Final)
+```
+
+#2. Summary Report  
+a.Column names and their data types
+```{r}
+str(Customer_Final)
+```
+
+b.Top/Bottom 10 observations
+```{r}
+head(Customer_Final, 10)
+tail(Customer_Final, 10)
+```
+
+c."Five-number summary" for continuous variables
+```{r}
+Qty<-fivenum(Customer_Final$Qty)
+Rate<-fivenum(Customer_Final$Rate)
+Tax<-fivenum(Customer_Final$Tax)
+Total_Amt<-fivenum(Customer_Final$total_amt)
+Five_number_Summary<-data.frame(Qty,Rate,Tax,Total_Amt, row.names=c("Min","1st Quart","Median","3rd Quart","Max"))
+print(Five_number_Summary)
+```
+
+d.Frequency tables for all categorical variables
+```{r}
+## Extract of Freq table for customer id
+head(table(Customer_Final$customer_Id),50)
+## Freq table for Gender
+Customer_Final$Gender[Customer_Final$Gender==""]<-NA
+table(Customer_Final$Gender)
+## Freq table for City
+table(Customer_Final$city_code)
+## Freq table for Store type
+table(Customer_Final$Store_type)
+## Freq table for Product Categories
+table(Customer_Final$prod_cat)
+```
+
+#3.Histogram and Frequency bars
+```{r}
+hist(Customer_Final$Qty, col="#E4717A", xlab = "Quantity")
+hist(Customer_Final$total_amt,border="red", xlab = "Total Amount")
+barplot(table(Customer_Final$Gender),xlab = "Gender")
+barplot(table(Customer_Final$Store_type),col="light blue",xlab = "Store Type")
+```
+
+#4.Transaction Analysis
+```{r}
+##a.Time period of available transaction data
+TimePeriod<-max(Customer_Final$tran_date)-min(Customer_Final$tran_date)
+print(TimePeriod)
+
+##b.Count of transactions where total amount was negative
+Customer_Final %>% filter(total_amt<0) %>% distinct(transaction_id) %>% count()
+```
+
+#5.Category Popularity
+```{r}
+library(ggplot2)
+Customer_Final %>% filter(!is.na(Customer_Final$Gender)) %>% ggplot(aes(prod_cat,fill=Gender))+geom_bar(position='dodge')+labs(x="Product Category")
+```
+
+#6.Maximum customers in city
+```{r}
+d<-Customers %>% group_by(city_code) %>% count()
+paste("Maximum customers are from city code",d$city_code[which.max(d$n)])
+
+##Percent of Customers from this city
+pct<-max(d$n)/nrow(Customers)
+print(pct)
+```
+
+#7.Store-type analysis
+```{r}
+Totals<-Customer_Final %>% filter(Qty>0) %>% group_by(Store_type) %>% summarise(TotalQty=sum(Qty),TotalValue=sum(total_amt))
+
+MaxbyQty<-Totals$Store_type[which.max(Totals$TotalQty)]
+paste("Store-type selling max products by Quantity:", MaxbyQty)
+MaxbyValue<-Totals$Store_type[which.max(Totals$TotalValue)]
+paste("Store-type selling max products by Value:", MaxbyValue)
+```
+
+#8.Total amount earned from Electronics and Clothing categories for Flagship stores
+```{r}
+Customer_Final %>% filter(grepl("Flagship",Store_type) & prod_cat %in% c("Electronics","Clothing")) %>% summarise(Tot_Amt=sum(total_amt))
+```
+
+#9.Total amount earned from Males in Electronics category
+```{r}
+Customer_Final %>% filter(Gender=="M" & prod_cat == "Electronics") %>% summarise(Tot_MnE=sum(total_amt))
+```
+
+#10. Customers having more than 10 unique transactions
+```{r}
+Freq_cust<-Customer_Final %>% filter(total_amt>0) %>% group_by(customer_Id) %>% count()
+NoofFreqcust<-nrow(Freq_cust %>% filter(n>10))
+print(NoofFreqcust)
+```
+
+#11.Customers aged between 25-35  
+a. Total amount spent in Electronics and Books
+```{r}
+Customer_Final$Age<-year(max(Customer_Final$tran_date))-year(Customer_Final$DOB)
+Customer_Final %>% filter(between(Age,25,35) & prod_cat %in% c("Electronics","Books")) %>% summarise(AmtSpent=sum(total_amt))
+```
+
+b. Total amount spent by above customers between 1st Jan 2014 to 1st Mar 2014
+```{r}
+Customer_Final %>% filter(between(Age,25,35) & between(tran_date,as.Date("2014-01-01",format = "%Y-%m-%d"),as.Date("2014-03-01",format = "%Y-%m-%d"))) %>% summarise(Amt_Spent=sum(total_amt))
+View(Customer_Final)
+```
+

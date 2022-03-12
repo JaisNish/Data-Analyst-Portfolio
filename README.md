@@ -29,14 +29,14 @@ In this section, there will be case studies/analysis performed on the given data
 #### Cell Phone data anaysis 
 **Code:**
 **Description:** There is a given database cellphone information which contains  details on the cell phone or transactions. Answer all the questions based on this data on the SQL queries.
-**Skills:**
-**Technology:**
-**Results:** 
+**Skills:** 
+**Technology:** 
+**Results:**  
 
 #### Retail data analysis 
-**Code:**
+**Code:** 
 **Description:** A retail store would like to understand customer behaviour  using their point of sale data(POS).
-**Skills:**
+**Skills:** 
 **Technology:**
 **Results:** 
 
@@ -44,16 +44,22 @@ In this section, there will be case studies/analysis performed on the given data
 In this section, there will be case studies/analysis performed on the given data which will help in retrieving datasets and mapping the business objectives based on the Tableau report.
 
 #### Laptop Case study 
-**Code:**
+**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations)
+**Code:** 
 **Description:** One of the leading retail chains in London having more than 15 stores sells Laptops and accessories. The company would like to define product strategy and pricing policies that will maximise company projected revenues in 2016. Kindly create tableau report showcasing the necessary data based on the given queries.
-**Skills:**
+**Skills:** 
 **Technology:**
-**Results:**  https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations
+**Results:** Created dashboard in Tableau based on the business objective and queries
 
 
 #### Sports Equipments Case study 
-**Code:** 
+**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare)
+**Code:**  
 **Description:** Our client is a leading retailer of the Sports Equipments across the globe.Product manager of the company wants to analyze combined Revenue generated in year 2014 across different countries. As part of this case study, kindly retrive data as per the given questions.
-**Skills:**
-**Technology:**
-**Results:** https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare
+**Skills:** 
+**Technology:** 
+**Results:** Created dashboard in Tableau based on the business objective and queries
+
+
+Data Visualization & Analytics/SQL Assignments/Mobile manufacturer case study/SQL - assignments and responses.sql
+https://github.com/JaisNish/Data-Analyst-Portfolio/blob/7f3a2f9b457dbdc40526ce42ae7ef4b5d1b8ee62/Data%20Visualization%20&%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study/SQL%20-%20assignments%20and%20responses.sql

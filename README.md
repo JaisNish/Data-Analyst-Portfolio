@@ -2,7 +2,7 @@
 
 ## About
 
-Hi, I am Nishtha! I hold MBA degree in Finance & IT. I have done my engineering in Electronics before starting my career as quality assurance professional in Aug 2007.I have played several roles over the years such as quality engineer, Project Delivery executive and KYC/AML Senior analyst.
+Hi, I am Nishtha! I hold MBA degree in Finance & IT. I have done my engineering in Electronics before starting my career as quality assurance professional in Aug 2007.I have played several roles over the years such as Quality engineer, Project Delivery executive and KYC/AML Senior analyst.
 Over the past 6 months I am transitioning myself into Data analyst career path through training from AnalytixLabs.
 <br>
 This is a repository that I have created to showcase skills, share projects and track my progress in Data Analytics / Data Science related topics.

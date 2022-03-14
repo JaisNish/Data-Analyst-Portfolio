@@ -27,11 +27,11 @@ In this section I will list data analytics projects briefly describing the techn
 In this section, there will be case studies/analysis performed on the given data which will help in understanding writing complex SQL queries to retrieve different kind of datasets.
 
 #### Mobile Manufacturer data anaysis 
-**Code:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/localbranch/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study
-**Description:** There is a given database cellphone information which contains  details on the cell phone or transactions. Answer all the questions based on this data on the SQL queries.
-**Skills:** 
-**Technology:** 
-**Results:**  
+**Code:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/localbranch/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study  
+**Description:** There is a given database cellphone information which contains  details on the cell phone or transactions. Answer all the questions based on this data on the SQL queries.   
+**Skills:**     
+**Technology:**   
+**Results:**    
 
 #### Retail data analysis 
 **Code:** 

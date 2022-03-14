@@ -34,28 +34,28 @@ In this section, there will be case studies/analysis performed on the given data
 **Results:**    
 
 #### Retail data analysis 
-**Code:** 
-**Description:** A retail store would like to understand customer behaviour  using their point of sale data(POS).
-**Skills:** 
-**Technology:**
-**Results:** 
+**Code:**   
+**Description:** A retail store would like to understand customer behaviour  using their point of sale data(POS).  
+**Skills:**   
+**Technology:**  
+**Results:**   
 
 ### Tableau Case study Analysis
 In this section, there will be case studies/analysis performed on the given data which will help in retrieving datasets and mapping the business objectives based on the Tableau report.
 
 #### Laptop Case study 
-**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations)
-**Code:** 
-**Description:** One of the leading retail chains in London having more than 15 stores sells Laptops and accessories. The company would like to define product strategy and pricing policies that will maximise company projected revenues in 2016. Kindly create tableau report showcasing the necessary data based on the given queries.
-**Skills:** 
-**Technology:**
-**Results:** Created dashboard in Tableau based on the business objective and queries
+**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations)  
+**Code:**   
+**Description:** One of the leading retail chains in London having more than 15 stores sells Laptops and accessories. The company would like to define product strategy and pricing policies that will maximise company projected revenues in 2016. Kindly create tableau report showcasing the necessary data based on the given queries.  
+**Skills:**   
+**Technology:**  
+**Results:** Created dashboard in Tableau based on the business objective and queries  
 
 
 #### Sports Equipments Case study 
-**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare)
-**Code:**  
-**Description:** Our client is a leading retailer of the Sports Equipments across the globe.Product manager of the company wants to analyze combined Revenue generated in year 2014 across different countries. As part of this case study, kindly retrive data as per the given questions.
-**Skills:** 
-**Technology:** 
-**Results:** Created dashboard in Tableau based on the business objective and queries
+**Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare)  
+**Code:**    
+**Description:** Our client is a leading retailer of the Sports Equipments across the globe.Product manager of the company wants to analyze combined Revenue generated in year 2014 across different countries. As part of this case study, kindly retrive data as per the given questions.  
+**Skills:**   
+**Technology:**   
+**Results:** Created dashboard in Tableau based on the business objective and queries  

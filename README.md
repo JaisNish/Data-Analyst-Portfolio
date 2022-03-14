@@ -30,11 +30,11 @@ In this section I will list data analytics projects briefly describing the techn
 In this section, there will be case studies/analysis performed on the given data using excel formulaes/macros.
 
 #### Airline data anaysis 
-**Github link:**  
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/Excel%20Assignments.     
 **Description:** There is a given data about airlines. Using excel formulaes/macros, please answer all the queries within the excel sheets.   
 
 #### Sports events data analysis 
-**Github link:**  
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/Excel%20Assignments.    
 **Description:** There is a given data about sports events. Using excel formulaes/macros, please answer all the queries within the excel sheets.   
 
 
@@ -42,12 +42,12 @@ In this section, there will be case studies/analysis performed on the given data
 In this section, there will be case studies/analysis performed on the given data which will help in understanding writing complex SQL queries to retrieve different kind of datasets.
 
 #### Mobile Manufacturer data anaysis 
-**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/localbranch/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study  
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study  
 **Description:** There is a given database cellphone information which contains  details on the cell phone or transactions. Answer all the questions based on this data on the SQL queries.   
    
 
 #### Retail data analysis 
-**Github link:**   
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Retail%20case%20study.    
 **Description:** A retail store would like to understand customer behaviour  using their point of sale data(POS).  
   
 
@@ -56,11 +56,11 @@ In this section, there will be case studies/analysis performed on the given data
 
 #### Laptop Case study 
 **Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations)  
-**Github link:**   
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/Tableau%20Assignments/Laptop%20sales%20case%20study  
 **Description:** One of the leading retail chains in London having more than 15 stores sells Laptops and accessories. The company would like to define product strategy and pricing policies that will maximise company projected revenues in 2016. Kindly create tableau report showcasing the necessary data based on the given queries.  
 
 
 #### Sports Equipments Case study 
 **Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare)  
-**Github link:**    
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/main/Data%20Visualization%20%26%20Analytics/Tableau%20Assignments/Sport%20equipment%20sales%20analysis  
 **Description:** Our client is a leading retailer of the Sports Equipments across the globe.Product manager of the company wants to analyze combined Revenue generated in year 2014 across different countries. As part of this case study, kindly retrive data as per the given questions.  

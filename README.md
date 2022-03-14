@@ -10,52 +10,57 @@ This is a repository that I have created to showcase skills, share projects and 
 
 ## Table of contents
 - [About](#about)
-- [Portfolio Projects](#portfolio-projects)
+- [Case Studies](#case-studies)
+	+ [Excel Case study Analysis](#excel-case-study-analysis)
+		+ [Airline data anaysis](#airline-data-analysis)
+		+ [Sports events data analysis](#sport-event-data-analysis)
 	+ [SQL Case study Analysis](#sql-case-study-analysis)
-		+ [Cell Phone data anaysis](#cell-phone-analysis)
+		+ [Mobile Manufacturer data anaysis](#mobile-manufacturer-data-analysis)
 		+ [Retail data analysis](#retail-data-analysis)
 	+ [Tableau Case study Analysis](#tableau-case-study-analysis)
-		+ [Cell Phone data anaysis](#cell-phone-analysis)
-		+ [Retail data analysis](#retail-data-analysis)
+		+ [Laptop Case study](#laptop-data-analysis)
+		+ [Sports Equipments Case study](#sport-equipments-data-analysis)
 	
 
 
-## Portfolio Projects
+## Case Studies
 In this section I will list data analytics projects briefly describing the technology stack used to solve cases.
+
+### Excel Case study Analysis
+In this section, there will be case studies/analysis performed on the given data using excel formulaes/macros.
+
+#### Airline data anaysis 
+**Github link:**  
+**Description:** There is a given data about airlines. Using excel formulaes/macros, please answer all the queries within the excel sheets.   
+
+#### Sports events data analysis 
+**Github link:**  
+**Description:** There is a given data about sports events. Using excel formulaes/macros, please answer all the queries within the excel sheets.   
+
 
 ### SQL Case study Analysis
 In this section, there will be case studies/analysis performed on the given data which will help in understanding writing complex SQL queries to retrieve different kind of datasets.
 
 #### Mobile Manufacturer data anaysis 
-**Code:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/localbranch/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study  
+**Github link:** https://github.com/JaisNish/Data-Analyst-Portfolio/tree/localbranch/Data%20Visualization%20%26%20Analytics/SQL%20Assignments/Mobile%20manufacturer%20case%20study  
 **Description:** There is a given database cellphone information which contains  details on the cell phone or transactions. Answer all the questions based on this data on the SQL queries.   
-**Skills:**     
-**Technology:**   
-**Results:**    
+   
 
 #### Retail data analysis 
-**Code:**   
+**Github link:**   
 **Description:** A retail store would like to understand customer behaviour  using their point of sale data(POS).  
-**Skills:**   
-**Technology:**  
-**Results:**   
+  
 
 ### Tableau Case study Analysis
 In this section, there will be case studies/analysis performed on the given data which will help in retrieving datasets and mapping the business objectives based on the Tableau report.
 
 #### Laptop Case study 
 **Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/Laptopsalesanalysis_16427625574010/1_TopConfigurations)  
-**Code:**   
+**Github link:**   
 **Description:** One of the leading retail chains in London having more than 15 stores sells Laptops and accessories. The company would like to define product strategy and pricing policies that will maximise company projected revenues in 2016. Kindly create tableau report showcasing the necessary data based on the given queries.  
-**Skills:**   
-**Technology:**  
-**Results:** Created dashboard in Tableau based on the business objective and queries  
 
 
 #### Sports Equipments Case study 
 **Tableau Public:** [`dashboard`](https://public.tableau.com/app/profile/nishtha1788/viz/SportsEquipment_16425332062150/1_MarketShare)  
-**Code:**    
+**Github link:**    
 **Description:** Our client is a leading retailer of the Sports Equipments across the globe.Product manager of the company wants to analyze combined Revenue generated in year 2014 across different countries. As part of this case study, kindly retrive data as per the given questions.  
-**Skills:**   
-**Technology:**   
-**Results:** Created dashboard in Tableau based on the business objective and queries  
